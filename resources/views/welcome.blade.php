@@ -32,30 +32,26 @@
             </div>
         </div>
         <div class="container flex">
-            <table class="table-fixed mr-5 w-1/2">
-                <thead>
+            <table class="border-collapse border border-gray-600 table-auto mr-5 w-1/2">
+                <thead class="border border-gray-600" >
                     <tr>
-                    <th class="w-3/4 ...">Author</th>
-                    <th class="w-1/4 ...">Views</th>
+                    <th colspan=2 class="w-100 border border-gray-600">Pessoas</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <td>Adam</td>
-                    <td>858</td>
-                    </tr>
-                    <tr class="bg-blue-200">
-                    <td>Adam</td>
-                    <td>112</td>
+                    <tr class="h-auto border border-gray-600">
+                    <td class="w-2/3 h-auto border border-gray-600">Adam</td>
+                    <td class="w-1/3 h-auto text-center border border-gray-600"><button class="justify-center py-2 px-2 rounded-lg border-2 border-black">remover</button></td>
                     </tr>
                     <tr>
-                    <td>Chris</td>
-                    <td>1,280</td>
+                    <td colspan=2>
+                    <button class="w-full justify-center py-2 px-2 rounded-lg border-2 border-black">Adicionar filho</button>
+                    </td>
                     </tr>
                 </tbody>
             </table>
             <div x-data="{listar : false}" class="w-1/2">
-                <textarea class="w-full" name="dependente" id="dependente" cols="30" rows="10"></textarea>
+                <textarea class="w-full" name="dependente" id="dependente"></textarea>
             </div>
         </div>
     </form>
