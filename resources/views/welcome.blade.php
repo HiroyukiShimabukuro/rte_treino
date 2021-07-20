@@ -44,22 +44,25 @@
                 </thead>
                 <tbody>
                     <template x-for="pessoa in pessoas">
-                        <tr class="h-auto border border-gray-600">
-                            <td x-text="pessoa.name" class="w-2/3 h-auto border border-gray-600"></td>
-                            <td class="w-1/3 h-auto text-center border border-gray-600"><button @click="removePessoas(pessoa.id)" class="justify-center py-2 px-2 rounded-lg border-2 border-black">remover</button></td>
-                            <p>ascfasf</p>
-                        </tr>
-                        <tr>
-                            <button @click="addDependente()" class="w-full justify-center py-2 px-2 rounded-lg border-2 border-black">Adicionar filho</button>
-                        </tr>
-                        </td>
-                        <template x-for="(dependente, index) in dependentes" :key="index">
-                            <tr>
-                                <td x-show="dependentes" x-text="dependente.name" class="w-2/3 h-auto border border-gray-600"></td>
-                                <td x-show="dependentes" class="w-1/3 h-auto text-center border border-gray-600"><button class="justify-center py-2 px-2 rounded-lg border-2 border-black">Remover Dependente</button></td>
+                        <div>
+
+                            <tr class="border border-gray-600">
+                                <td x-text="pessoa.name" class="w-2/3 h-auto border border-gray-600"></td>
+                                <td class="w-1/3 h-auto text-center border border-gray-600"><button @click="removePessoas(pessoa.id)" class="justify-center py-2 px-2 rounded-lg border-2 border-black">remover</button></td>
                             </tr>
-                        </template>
+                            <tr class="border border-gray-600">
+                                <td colspan="2" class="h-auto border border-gray-600">
+                                    <button @click="addDependente()" class="w-full justify-center py-2 px-2 rounded-lg border-2 border-black">Adicionar filho</button>
+                                </td>
+                            </tr>
+                        </div>
                     </template>
+                    <!-- <template x-for="(dependente, index) in dependentes" :key="index">
+                        <tr>
+                            <td x-show="dependentes" x-text="dependente.name" class="w-2/3 h-auto border border-gray-600"></td>
+                            <td x-show="dependentes" class="w-1/3 h-auto text-center border border-gray-600"><button class="justify-center py-2 px-2 rounded-lg border-2 border-black">Remover Dependente</button></td>
+                        </tr>
+                    </template> -->
 
                 </tbody>
             </table>
