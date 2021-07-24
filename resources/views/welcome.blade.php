@@ -12,8 +12,6 @@
             font-family: 'Nunito', sans-serif;
         }
     </style>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/css/app.css" rel="stylesheet">
@@ -21,8 +19,9 @@
 </head>
 
 <body>
+    <script src="{{ asset('js/welcome.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <form x-data="addPessoa()" action="post" class="mx-2 my-2" onsubmit="return false;">
+    <form x-data="addPessoa" action="post" class="mx-2 my-2" onsubmit="return false;">
         <div class="row">
             <button class="justify-center mx-2 px-2 py-1 text-sm font-medium border-2 border-black rounded-lg">Gravar</button>
             <button class="justify-center mx-2 px-2 py-1 text-sm font-medium border-2 border-black rounded-lg">Ler</button>
@@ -36,95 +35,23 @@
         </div>
 
         <div class="container flex">
-            <table class="border-collapse border border-gray-600 table-auto mr-5 w-1/2">
-                <thead class="border border-gray-600">
-                    <tr>
-                        <th colspan=2 class="w-100 border border-gray-600">Pessoas</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <template x-for="pessoa in pessoas">
-                        <div>
-
-                            <tr class="border border-gray-600">
-                                <td x-text="pessoa.name" class="w-2/3 h-auto border border-gray-600"></td>
-                                <td class="w-1/3 h-auto text-center border border-gray-600"><button @click="removePessoas(pessoa.id)" class="justify-center py-2 px-2 rounded-lg border-2 border-black">remover</button></td>
-                            </tr>
-                            <tr class="border border-gray-600">
-                                <td colspan="2" class="h-auto border border-gray-600">
-                                    <button @click="addDependente()" class="w-full justify-center py-2 px-2 rounded-lg border-2 border-black">Adicionar filho</button>
-                                </td>
-                            </tr>
-                        </div>
-                    </template>
-                    <!-- <template x-for="(dependente, index) in dependentes" :key="index">
-                        <tr>
-                            <td x-show="dependentes" x-text="dependente.name" class="w-2/3 h-auto border border-gray-600"></td>
-                            <td x-show="dependentes" class="w-1/3 h-auto text-center border border-gray-600"><button class="justify-center py-2 px-2 rounded-lg border-2 border-black">Remover Dependente</button></td>
-                        </tr>
-                    </template> -->
-
-                </tbody>
-            </table>
-            <!-- <div x-text='dependentes' class="w-1/2">
-                <textarea x-model="dependentes" class="w-full" name="dependentes" id="dependentes"></textarea>
-            </div> -->
+            <ul class="border-collapse border border-gray-600 mr-2 w-1/2">
+                <p class="text-center">Pessoas</p>
+                <template x-for="pessoa in pessoas">
+                    <li class="">
+                    <div class="grid grid-flow-col">
+                    <p class="border border-l-0 border-r-0 border-gray-600" x-text="pessoa.name"></p>
+                    <button class="border border-r-0 border-gray-600" x-on:click="removePessoas(pessoa.id)">Remover</button>
+                    </div>
+                    <button x-on:click="addDependentes()" class="w-full">Adicionar Filho</button>
+                    </li>
+                </template>
+            </ul>
+            <div class="w-1/2">
+                <textarea x-text="dependentes" class="w-full" name="lista" id="lista"></textarea>
+            </div>
         </div>
     </form>
 </body>
 
 </html>
-<script>
-    document.addEventListener('alpine:init', () => {
-        Alpine.data('addPessoa', () => ({
-            pessoa: '',
-            pessoas: [],
-            pessoasId: 0,
-            dependente: '',
-            dependentes: [],
-            dependentesId: 0,
-            addPessoas($pessoa) {
-                if ($pessoa.trim() === '') return;
-                this.pessoas.push({
-                    id: this.pessoasId++,
-                    name: $pessoa
-                })
-            },
-            removePessoas($pessoaId) {
-                this.pessoas = this.pessoas.filter(pessoa => pessoa.id != $pessoaId);
-            },
-            addDependente($dependente) {
-                if ($dependente.trim() === '') return;
-                this.dependentes.push({
-                    id: this.dependentesId++,
-                    name: $pessoa
-                })
-                this.pessoas.push({
-                    dependentes: this.dependentes
-                })
-            }
-        }))
-    })
-
-    // function todoApp() {
-    //     return {
-    //         description: '',
-    //         todoId: 0,
-    //         todoArray: [],
-    //         addTodo($type, $description) {
-    //             if ($description.trim() === '') {
-    //                 return;
-    //             }
-    //             this.todoArray.push({
-    //                 id: this.todoId++,
-    //                 type: $type,
-    //                 description: $description.trim()
-    //             });
-    //             this.filterUrl = '';
-    //         },
-    //         removeTodo($todoId) {
-    //             this.todoArray = this.todoArray.filter(todoSingle => todoSingle.id != $todoId);
-    //         }
-    //     }
-    // }
-</script>

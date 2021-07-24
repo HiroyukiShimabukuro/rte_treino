@@ -20,7 +20,7 @@
 
 <body>
     <script src="{{ asset('js/puro.js') }}" defer></script>
-    <form action="post" class="mx-2 my-2" onsubmit="return false;">
+    <form action="" method="post" class="mx-2 my-2" onsubmit="return false;">
         <div class="row">
             <button class="justify-center mx-2 px-2 py-1 text-sm font-medium border-2 border-black rounded-lg">Gravar</button>
             <button class="justify-center mx-2 px-2 py-1 text-sm font-medium border-2 border-black rounded-lg">Ler</button>

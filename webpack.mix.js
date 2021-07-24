@@ -15,3 +15,5 @@ const mix = require('laravel-mix');
      require('tailwindcss'),
      require("autoprefixer"),
  ]);
+
+ mix.js('resources/js/welcome.js', 'public/js');
