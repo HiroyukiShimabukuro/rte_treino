@@ -9,7 +9,9 @@ document.addEventListener('alpine:init', () => {
         pessoasId: 0,
         dependente: '',
         dependentes: [],
+        json: [],
         dependentesId: 0,
+        showModal: false,
         addPessoas($pessoa) {
             if ($pessoa.trim() === '') return;
             this.pessoas.push({
@@ -22,13 +24,16 @@ document.addEventListener('alpine:init', () => {
         },
         addDependente($dependente) {
             if ($dependente.trim() === '') return;
+            console.log($dependente);
             this.dependentes.push({
-                id: this.dependentesId++,
-                name: $pessoa
+                id : this.dependentesId++,
+                name: $dependente,
             })
-            this.pessoas.push({
-                dependentes: this.dependentes
+            this.json.push({
+                pessoa: this.pessoa,
+                dependente: this.dependente,
             })
+            this.showModal = false;
         }
     }))
 })

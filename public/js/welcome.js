@@ -3191,7 +3191,9 @@ document.addEventListener('alpine:init', function () {
       pessoasId: 0,
       dependente: '',
       dependentes: [],
+      json: [],
       dependentesId: 0,
+      showModal: false,
       addPessoas: function addPessoas($pessoa) {
         if ($pessoa.trim() === '') return;
         this.pessoas.push({
@@ -3206,13 +3208,16 @@ document.addEventListener('alpine:init', function () {
       },
       addDependente: function addDependente($dependente) {
         if ($dependente.trim() === '') return;
+        console.log($dependente);
         this.dependentes.push({
           id: this.dependentesId++,
-          name: $pessoa
+          name: $dependente
         });
-        this.pessoas.push({
-          dependentes: this.dependentes
+        this.json.push({
+          pessoa: this.pessoa,
+          dependente: this.dependente
         });
+        this.showModal = false;
       }
     };
   });
