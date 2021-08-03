@@ -12,6 +12,7 @@ document.addEventListener('alpine:init', () => {
         json: [],
         dependentesId: 0,
         showModal: false,
+        teste : [],
         addPessoas($pessoa) {
             if ($pessoa.trim() === '') return;
             this.pessoas.push({
@@ -29,10 +30,13 @@ document.addEventListener('alpine:init', () => {
                 id : this.dependentesId++,
                 name: $dependente,
             })
-            this.json.push({
-                pessoa: this.pessoa,
-                dependente: this.dependente,
-            })
+            this.json = this.pessoas.forEach(pessoa => {
+                this.teste = {nome : pessoa.name}
+                this.dependentes.forEach(dependente => {
+                                        
+                });
+                return element.id +' - '+element.name;
+            });
             this.showModal = false;
         }
     }))
