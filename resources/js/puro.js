@@ -19,10 +19,18 @@ window.incluirPessoas = function()
     buttonAddDependente.onclick = function(){
         nomeDependente = prompt("Digite o nome do dependente:");
         ulDependente = document.createElement('ul');
+        ulDependente.className = 'w-full border border-black';
+
         dependente = document.createElement('li');
         dependente.className = 'w-2/3 border border-r-0 border-black';
         dependente.innerHTML = nomeDependente;
+
+        removerDependente = document.createElement('button');
+        removerDependente.className = 'w-1/3 border border-black';
+        removerDependente.innerHTML = 'Remover Dependente';
+        
         ulDependente.appendChild(dependente);
+        ulDependente.appendChild(removerDependente);
         
         divUl.appendChild(ulDependente);
     }
