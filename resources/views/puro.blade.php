@@ -24,12 +24,12 @@
         @csrf
 
         <div class="row">
-            <button class="justify-center mx-2 px-2 py-1 text-sm font-medium border-2 border-black rounded-lg">Gravar</button>
+            <button onclick="submit()" class="justify-center mx-2 px-2 py-1 text-sm font-medium border-2 border-black rounded-lg">Gravar</button>
             <button class="justify-center mx-2 px-2 py-1 text-sm font-medium border-2 border-black rounded-lg">Ler</button>
 
             <div class="row my-2">
                 Nome: <input type="text" id="nomePessoa" class="mx-2 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-lg outline-none  text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                <button onclick="incluirPessoas()" class="justify-center px-2 py-1 text-sm font-medium border-2 border-black rounded-lg">
+                <button onclick="addPessoaObj()" class="justify-center px-2 py-1 text-sm font-medium border-2 border-black rounded-lg">
                     Incluir
                 </button>
             </div>
